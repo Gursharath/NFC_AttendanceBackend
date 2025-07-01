@@ -37,4 +37,11 @@ class StudentController extends Controller
         Student::destroy($id);
         return response()->json(['message' => 'Deleted']);
     }
+    public function getByNfcId($nfcId) {
+    $student = Student::where('nfc_id', $nfcId)->first();
+    if (!$student) {
+        return response()->json(['message' => 'Student not found'], 404);
+    }
+    return response()->json($student);
+}
 }

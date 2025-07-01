@@ -13,7 +13,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/students', [StudentController::class, 'index']);         // List all students
     Route::post('/students', [StudentController::class, 'store']);        // Register a new student
     Route::put('/students/{id}', [StudentController::class, 'update']);   // Update student
-    Route::delete('/students/{id}', [StudentController::class, 'destroy']);// Delete student
+    Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+    Route::get('/students/nfc/{id}', [StudentController::class, 'getByNfcId']);
+// Delete student
 
     // 🕒 Attendance Routes
     Route::post('/attendance/mark', [AttendanceController::class, 'mark']);            // Mark attendance via NFC
